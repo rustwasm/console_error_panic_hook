@@ -91,6 +91,7 @@ pub fn hook(info: &panic::PanicInfo) {
 
 /// Set the `console.error` panic hook the first time this is called. Subsequent
 /// invocations do nothing.
+#[inline]
 pub fn set_once() {
     use std::sync::{ONCE_INIT, Once};
     static SET_HOOK: Once = ONCE_INIT;
