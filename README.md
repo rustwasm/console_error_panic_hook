@@ -1,5 +1,3 @@
-# console_error_panic_hook
-
 ## `console_error_panic_hook`
 
 [![Build Status](https://travis-ci.org/rustwasm/console_error_panic_hook.svg?branch=master)](https://travis-ci.org/rustwasm/console_error_panic_hook)
@@ -47,5 +45,3 @@ impl MyBigThing {
     }
 }
 ```
-
-License: Apache-2.0/MIT
