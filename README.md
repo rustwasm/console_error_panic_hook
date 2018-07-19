@@ -13,6 +13,14 @@ When an error is reported with `console.error`, browser devtools and node.js
 will typically capture a stack trace and display it with the logged error
 message.
 
+Without `console_error_panic_hook` you just get something like *RuntimeError: Unreachable executed*
+
+![Console without panic hook](without_panic_hook.png)
+
+With this panic hook installed you will see the panic message
+
+![Console with panic hook set up](with_panic_hook.png)
+
 ### Usage
 
 There are two ways to install this panic hook.
