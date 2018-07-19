@@ -17,7 +17,7 @@ Without `console_error_panic_hook` you just get something like *RuntimeError: Un
 
 ![Console without panic hook](without_panic_hook.png)
 
-but with this panic hook installed you will see the panic message
+With this panic hook installed you will see the panic message
 
 ![Console with panic hook set up](with_panic_hook.png)
 
