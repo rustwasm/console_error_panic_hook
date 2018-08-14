@@ -57,7 +57,7 @@
 //! }
 //! ```
 
-#![feature(use_extern_macros, wasm_custom_section, wasm_import_module)]
+#![feature(use_extern_macros)]
 
 #[macro_use]
 extern crate cfg_if;
