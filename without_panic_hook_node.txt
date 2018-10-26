@@ -1,0 +1,15 @@
+wasm://wasm/00863b9e:93
+
+^
+
+RuntimeError: unreachable
+    at __rust_start_panic (wasm-function[92]:1)
+    at rust_panic (wasm-function[91]:30)
+    at std::panicking::rust_panic_with_hook::h7272e611f0b79f9b (wasm-function[88]:440)
+    at std::panicking::begin_panic::h320534c109c5fbc7 (wasm-function[5]:163)
+    at console_error_panic_hook_test::panic::h488a1aaa03d46c86 (wasm-function[34]:35)
+    at panic (wasm-function[35]:33)
+    at Object.module.exports.panic (/Users/kyle/console-error-panic-hook-test/pkg/console_error_panic_hook_test.js:37:17)
+    at Object.<anonymous> (/Users/kyle/console-error-panic-hook-test/pkg/test.js:3:5)
+    at Module._compile (internal/modules/cjs/loader.js:702:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
