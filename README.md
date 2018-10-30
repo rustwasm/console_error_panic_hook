@@ -15,11 +15,19 @@ message.
 
 Without `console_error_panic_hook` you just get something like *RuntimeError: Unreachable executed*
 
+Browser:
 ![Console without panic hook](without_panic_hook.png)
+
+Node:
+![Node console without panic hook](without_panic_hook_node.png)
 
 With this panic hook installed you will see the panic message
 
+Browser:
 ![Console with panic hook set up](with_panic_hook.png)
+
+Node:
+![Node console with panic hook set up](with_panic_hook_node.png)
 
 ### Usage
 
