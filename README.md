@@ -64,3 +64,8 @@ impl MyBigThing {
     }
 }
 ```
+
+### Error.stackTraceLimit
+
+Many browsers only capture the top 10 frames of a stack trace. In rust programs this is less likely to be enough. To see more frames, you can set the non-standard value Error.strackTraceLimit. For more information see the [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Microsoft_Extensions/Error.stackTraceLimit) or [v8 docs](https://v8.dev/docs/stack-trace-api).
+
