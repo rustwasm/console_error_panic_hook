@@ -144,8 +144,8 @@ pub fn hook(info: &panic::PanicInfo) {
 /// invocations do nothing.
 #[inline]
 pub fn set_once() {
-    use std::sync::{ONCE_INIT, Once};
-    static SET_HOOK: Once = ONCE_INIT;
+    use std::sync::Once;
+    static SET_HOOK: Once = Once::new();
     SET_HOOK.call_once(|| {
         panic::set_hook(Box::new(hook));
     });
