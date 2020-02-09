@@ -110,7 +110,32 @@ cfg_if! {
             msg.push_str("\n\nStack:\n\n");
             let e = Error::new();
             let stack = e.stack();
-            msg.push_str(&stack);
+
+            // Tweak the stack to separate the '@URL_to_file' part is visually in its own column.
+            let mut required_indent = 0;
+            for line in stack.lines(){
+                let position = line.find("@").unwrap_or(0);
+                if required_indent < position { required_indent = position; }
+            }
+            if 0 < required_indent {
+                required_indent += 3; // Guarantee at least 3 characters between the parts.
+                for line in stack.lines(){
+                    let position = line.find("@").unwrap_or(0);
+                    msg.push_str(&line[..position]);
+                    if position < required_indent {
+                        let difference = required_indent - position;
+                        msg.push_str(" ");
+                        for _ in 0..difference-2 {
+                            msg.push_str(".");
+                        }
+                        msg.push_str(" ");
+                    }
+                    msg.push_str(&line[position..]);
+                    msg.push_str("\n");
+                }
+            } else {
+                msg.push_str(&stack);
+            }
 
             // Safari's devtools, on the other hand, _do_ mess with logged
             // messages' contents, so we attempt to break their heuristics for
