@@ -111,7 +111,7 @@ cfg_if! {
             let e = Error::new();
             let stack = e.stack();
 
-            // Tweak the stack to separate the '@URL_to_file' part is visually in its own column.
+            // For FireFox: Tweak the stack to separate the '@URL_to_file' part is visually in its own column.
             let mut required_indent = 0;
             for line in stack.lines(){
                 let position = line.find("@").unwrap_or(0);
