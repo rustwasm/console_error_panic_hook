@@ -37,7 +37,6 @@ First, you can set the hook yourself by calling `std::panic::set_hook` in
 some initialization function:
 
 ```rust
-extern crate console_error_panic_hook;
 use std::panic;
 
 fn my_init_function() {
@@ -52,8 +51,6 @@ Alternatively, use `set_once` on some common code path to ensure that
 `std::sync::Once`.
 
 ```rust
-extern crate console_error_panic_hook;
-
 struct MyBigThing;
 
 impl MyBigThing {
