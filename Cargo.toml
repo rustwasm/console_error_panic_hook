@@ -6,11 +6,12 @@ license = "Apache-2.0/MIT"
 name = "console_error_panic_hook"
 readme = "./README.md"
 repository = "https://github.com/rustwasm/console_error_panic_hook"
-version = "0.1.6"
+edition = "2018"
+version = "0.1.7"
 
 [badges]
 travis-ci = { repository = "rustwasm/console_error_panic_hook" }
 
 [dependencies]
-cfg-if = "0.1.6"
-wasm-bindgen = "0.2.37"
+cfg-if = "0.1.10"
+wasm-bindgen = "0.2.68"

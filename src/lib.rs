@@ -37,7 +37,6 @@
 //! some initialization function:
 //!
 //! ```
-//! extern crate console_error_panic_hook;
 //! use std::panic;
 //!
 //! fn my_init_function() {
@@ -52,7 +51,6 @@
 //! `std::sync::Once`.
 //!
 //! ```
-//! extern crate console_error_panic_hook;
 //!
 //! struct MyBigThing;
 //!
@@ -70,14 +68,10 @@
 //! Many browsers only capture the top 10 frames of a stack trace. In rust programs this is less likely to be enough. To see more frames, you can set the non-standard value `Error.stackTraceLimit`. For more information see the [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Microsoft_Extensions/Error.stackTraceLimit) or [v8 docs](https://v8.dev/docs/stack-trace-api).
 //!
 
-#[macro_use]
-extern crate cfg_if;
-
 use std::panic;
 
-cfg_if! {
+cfg_if::cfg_if! {
     if #[cfg(target_arch = "wasm32")] {
-        extern crate wasm_bindgen;
         use wasm_bindgen::prelude::*;
 
         #[wasm_bindgen]
