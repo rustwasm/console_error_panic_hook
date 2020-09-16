@@ -1,9 +1,4 @@
-extern crate console_error_panic_hook;
-
-use std::fs::File;
-use std::io::Read;
-use std::panic;
-use std::process::Command;
+use std::{fs::File, io::Read, panic, process::Command};
 
 #[test]
 fn cargo_readme_up_to_date() {
