@@ -94,7 +94,7 @@ cfg_if! {
             fn stack(error: &Error) -> String;
         }
 
-        fn hook_impl(info: &panic::PanicInfo) {
+        fn format_panic_impl(info: &panic::PanicInfo) -> String {
             let mut msg = info.to_string();
 
             // Add the error stack to our message.
@@ -118,11 +118,21 @@ cfg_if! {
             // https://github.com/rustwasm/console_error_panic_hook/issues/7
             msg.push_str("\n\n");
 
-            // Finally, log the panic with `console.error`!
+            msg
+        }
+
+        fn hook_impl(info: &panic::PanicInfo) {
+            let msg = format_panic(info);
+
+            // Log the panic with `console.error`
             error(msg);
         }
     } else {
         use std::io::{self, Write};
+
+        fn format_panic_impl(info: &panic::PanicInfo) -> String {
+            info.to_string()
+        }
 
         fn hook_impl(info: &panic::PanicInfo) {
             let _ = writeln!(io::stderr(), "{}", info);
@@ -149,4 +159,10 @@ pub fn set_once() {
     SET_HOOK.call_once(|| {
         panic::set_hook(Box::new(hook));
     });
+}
+
+/// Format panic info for display with `console.error'. This is a low-level function for use by
+/// custom panic hooks.
+pub fn format_panic(info: &panic::PanicInfo) -> String {
+    format_panic_impl(info)
 }
